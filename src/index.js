@@ -1,3 +1,5 @@
+import { fromEvent, merge } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { MouseButton } from './mouse-button';
 
 /**
@@ -5,13 +7,17 @@ import { MouseButton } from './mouse-button';
  */
 const playground = document.querySelector('.playground');
 
-playground.addEventListener('contextmenu', event => {
-    event.preventDefault();
-});
+const contextMenu = fromEvent(playground, 'contextmenu').pipe(
+    tap(event => event.preventDefault())
+);
 
-playground.addEventListener('mousedown', event => {
-    console.dir('click', event);
-    console.warn(`Shift key: ${event.shiftKey}`);
-    console.warn(`Left mouse button: ${event.buttons === MouseButton.Primary}`);
-    console.warn(`Right mouse button: ${event.buttons === MouseButton.Secondary}`);
-});
+const mouseDown = fromEvent(playground, 'mousedown').pipe(
+    tap(event => {
+        console.dir('click', event);
+        console.warn(`Shift key: ${event.shiftKey}`);
+        console.warn(`Left mouse button: ${event.buttons === MouseButton.Primary}`);
+        console.warn(`Right mouse button: ${event.buttons === MouseButton.Secondary}`);
+    })
+);
+
+merge(contextMenu, mouseDown).subscribe();
