@@ -10,9 +10,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.5"
   },
   "dependencies": {
-    "rxjs": "^6.6.3"
+    "rxjs": "^7.4.0"
   }
 }

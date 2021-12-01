@@ -70,5 +70,6 @@ h1 {
     background-position: 0px 0px;
     background-size: 24px 24px;
     height: calc(100vh - var(--header-size));
-    width: 100vw;
+    position: relative;
+    width: 100%;
 }
