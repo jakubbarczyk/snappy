@@ -1,18 +1,18 @@
 {
   "name": "snappy",
   "version": "1.0.0",
-  "description": "",
+  "description": "An 8-directional snapping playground.",
   "main": "src/index.js",
   "scripts": {
     "start": "parcel ./src/index.html"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["canvas", "snap"],
+  "author": "Jakub Barczyk",
   "license": "MIT",
-  "devDependencies": {
-    "parcel-bundler": "^1.12.5"
-  },
   "dependencies": {
     "rxjs": "^7.4.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.4.1"
   }
 }
